@@ -205,7 +205,7 @@ class UserController extends Controller
             }catch(JWTException $e){
                 return response()->json(['error'=>"Could not create token"],500);
             }
-            /*here you will have a token and role which is "Client"
+            /*here you will have a token and role which is "Client".
                 Example:
                 {
                     "0": {

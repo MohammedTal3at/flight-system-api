@@ -36,6 +36,8 @@ class JWTGenerateCommand extends Command
      *
      * @return void
      */
+
+     //I changed the function to call handle() but sometimes worked as fire()
     public function handle()
     {
         $key = $this->getRandomKey();

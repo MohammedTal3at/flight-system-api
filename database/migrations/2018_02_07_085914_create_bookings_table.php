@@ -18,11 +18,11 @@ class CreateBookingsTable extends Migration
             $table->increments('id');
             $table->enum('status', ['accepted', 'waiting','rejected']);
             $table->float('price');
-            $table->integer('client_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->integer('trip_id')->unsigned();
             $table->integer('seat_level_id')->unsigned();
 
-            $table->foreign('client_id')->references('id')->on('clients');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('trip_id')->references('id')->on('trips');
             $table->foreign('seat_level_id')->references('id')->on('seats_levels');
 

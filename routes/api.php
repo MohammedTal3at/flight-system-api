@@ -20,6 +20,6 @@ use Illuminate\Http\Request;
 
 
 
-//For can signup and signin for clients 
+//For can signup and signin for clients. 
 Route::post('/client',['uses'=>"UserController@signup"]);
 Route::post('/client/signin',['uses'=>"UserController@signin"]);

@@ -7,7 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Booking' => $baseDir . '/app/Booking.php',
+<<<<<<< HEAD
     'App\\Client' => $baseDir . '/app/Client.php',
+=======
+>>>>>>> df4f653e0cc01deeadfad40c10ae7fb634991f72
     'App\\Company' => $baseDir . '/app/Company.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Contact' => $baseDir . '/app/Contact.php',

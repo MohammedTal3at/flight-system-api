@@ -27,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function bookings()
+    {
+        return $this->hasMany('App\Booking','user_id');
+    }
+
+    public function confirm_Booking(){
+        return $this->hasMany('App\Booking' , 'confirmed_by');
+    }
 }

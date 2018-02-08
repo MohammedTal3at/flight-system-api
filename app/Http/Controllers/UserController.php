@@ -158,7 +158,7 @@ class UserController extends Controller
     }
 
 
-///Here is the signup & signin for the client not for the admin
+///Here is the signup & signin for the client not for the admin--
         //signup
         public function signup(Request $request)
         {

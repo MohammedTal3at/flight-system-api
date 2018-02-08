@@ -88,7 +88,7 @@ class UserController extends Controller
 
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified resource...
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

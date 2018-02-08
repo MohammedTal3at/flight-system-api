@@ -34,3 +34,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 });
 
+//tests 
+
+Route::get('test/{id}', function($id) {
+   	   return App\Trip::find(1)->bookings;
+   	 
+});
+

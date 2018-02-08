@@ -15,4 +15,8 @@ class Booking extends Model
     {
     	return $this->belongsTo('App\User','confirmed_by');
     }
+    public function trip()
+    {
+    	return $this->belongsTo('App\Trip','trip_id');
+    }
 }

@@ -8,4 +8,9 @@ class SeatLevel extends Model
 {
     //
     protected $table = 'seats_levels';
+
+    public function trips()	
+    {
+    	return $this->belongsToMany('App\Trip','seats_levels_trips','seats_levels_id','trip_id')->withPivot('price','available_count');
+    }
 }

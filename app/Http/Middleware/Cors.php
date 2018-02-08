@@ -1,7 +1,8 @@
 <?php
 /*The Cors.php 
 is do as middleware for 
-related between the laravel and Angular
+related between the laravel and Angula
+
 */
 namespace App\Http\Middleware;
 

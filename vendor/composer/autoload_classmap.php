@@ -7,10 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Booking' => $baseDir . '/app/Booking.php',
-<<<<<<< HEAD
     'App\\Client' => $baseDir . '/app/Client.php',
-=======
->>>>>>> df4f653e0cc01deeadfad40c10ae7fb634991f72
     'App\\Company' => $baseDir . '/app/Company.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Contact' => $baseDir . '/app/Contact.php',
@@ -32,6 +29,7 @@ return array(
     'App\\Http\\Controllers\\TripsController' => $baseDir . '/app/Http/Controllers/TripsController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
+    'App\\Http\\Middleware\\Cors' => $baseDir . '/app/Http/Middleware/Cors.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
@@ -2855,7 +2853,6 @@ return array(
     'Symfony\\Component\\Debug\\FatalErrorHandler\\FatalErrorHandlerInterface' => $vendorDir . '/symfony/debug/FatalErrorHandler/FatalErrorHandlerInterface.php',
     'Symfony\\Component\\Debug\\FatalErrorHandler\\UndefinedFunctionFatalErrorHandler' => $vendorDir . '/symfony/debug/FatalErrorHandler/UndefinedFunctionFatalErrorHandler.php',
     'Symfony\\Component\\Debug\\FatalErrorHandler\\UndefinedMethodFatalErrorHandler' => $vendorDir . '/symfony/debug/FatalErrorHandler/UndefinedMethodFatalErrorHandler.php',
-    'Symfony\\Component\\EventDispatcher\\ContainerAwareEventDispatcher' => $vendorDir . '/symfony/event-dispatcher/ContainerAwareEventDispatcher.php',
     'Symfony\\Component\\EventDispatcher\\Debug\\TraceableEventDispatcher' => $vendorDir . '/symfony/event-dispatcher/Debug/TraceableEventDispatcher.php',
     'Symfony\\Component\\EventDispatcher\\Debug\\TraceableEventDispatcherInterface' => $vendorDir . '/symfony/event-dispatcher/Debug/TraceableEventDispatcherInterface.php',
     'Symfony\\Component\\EventDispatcher\\Debug\\WrappedListener' => $vendorDir . '/symfony/event-dispatcher/Debug/WrappedListener.php',

@@ -7,11 +7,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login
 
-                    @if(session('msg'))
 
-                        <div class="alert alert-danger" >{{ msg }} </div>
-                    @endif
-                
+                    @if(session('erorrMessage'))
+                        <div class="alert alert-danger">{{ erorrMessage }} </div>
+                    @endif    
+
+
                 </div>
 
                 <div class="panel-body">

@@ -11,18 +11,30 @@
 |
 */
 
+ 
+Route::view('/','welcome'); 
+
+//Auth Routes
+Route::get('login','Auth\LoginController@showLoginForm')->name('login');
+Route::post('logout','Auth\LoginController@logout')->name('logout');	
+
+Route::post('password/email','Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');	
+Route::post('password/reset','Auth\ResetPasswordController@reset');
+Route::get('password/reset','Auth\ForgotPasswordController@showLinkRequestForm 
+')->name('password.request');
+Route::get(' password/reset/{token}','Auth\ResetPasswordController@showResetForm ')->name('password.reset');
+
+
+//using our customizable login
+Route::post('login','AuthController@login');
+
+
+Route::group(['middleware' => ['auth']], function() {
+ 
 
 Route::get('/home', 'HomeController@index')->name('home');
+	
 
-
-Route::prefix('admin')->group(function () {
-	
-	Route::get('/', function () {
-		return view('welcome');
-	});
-	
-	
-	Auth::routes();
 	Route::resource('users', 'UserController');
 	//Route::post('users', ['as' => 'users.index', 'uses' => 'UserController@index', 'middleware' => ['permission:role-list|role-create|role-edit|role-delete']]);
 	
@@ -35,8 +47,9 @@ Route::prefix('admin')->group(function () {
 	Route::patch('roles/{id}', ['as' => 'roles.update', 'uses' => 'RoleController@update', 'middleware' => ['permission:role-edit']]);
 	Route::delete('roles/{id}', ['as' => 'roles.destroy', 'uses' => 'RoleController@destroy', 'middleware' => ['permission:role-delete']]);
 	
-	
-	
+
+		
+
 	//places index
 	Route::get('/places', ['as' => 'places.index', 'uses' => "PlacesController@index", 'middleware' => ['permission:create-place']]);
 	//places new
@@ -91,10 +104,4 @@ Route::prefix('admin')->group(function () {
 
 	
 });
-
-//tests 
-
-Route::get('test/{id}', function ($id) {
-	return App\Trip::find($id)->bookings;
-});
-
+ 

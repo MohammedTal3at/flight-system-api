@@ -11,10 +11,8 @@
 |
 */
 
-<<<<<<< HEAD
-Route::get('/', function () {
-    return view('welcome');
-});
+ 
+Route::view('/','welcome'); 
 
 //Auth Routes
 Route::get('login','Auth\LoginController@showLoginForm')->name('login');
@@ -31,27 +29,10 @@ Route::get(' password/reset/{token}','Auth\ResetPasswordController@showResetForm
 Route::post('login','AuthController@login');
 
 
-
+Route::group(['middleware' => ['auth']], function() {
  
 
-
-Route::group(['middleware' => ['auth']], function() {
-=======
->>>>>>> 6c824d397a19d22f1dfe69da63272912dbcea745
-
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::prefix('admin')->group(function () {
-	
-	Route::get('/', function () {
-		return view('welcome');
-	});
-	
-	
-	Auth::routes();
-	
-	
 	
 	Route::resource('users', 'UserController');
 	
@@ -64,14 +45,7 @@ Route::prefix('admin')->group(function () {
 	Route::patch('roles/{id}', ['as' => 'roles.update', 'uses' => 'RoleController@update', 'middleware' => ['permission:role-edit']]);
 	Route::delete('roles/{id}', ['as' => 'roles.destroy', 'uses' => 'RoleController@destroy', 'middleware' => ['permission:role-delete']]);
 	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	//places index
 	Route::get('/places', ['as' => 'places.index', 'uses' => "PlacesController@index", 'middleware' => ['permission:create-place']]);
 	//places new
@@ -105,10 +79,4 @@ Route::prefix('admin')->group(function () {
 	
 	
 });
-
-//tests 
-
-Route::get('test/{id}', function ($id) {
-	return App\Trip::find($id)->bookings;
-});
-
+ 

@@ -7129,3 +7129,35 @@ Did you mean one of these?
 #63 {main}
 >>>>>>> 6c824d397a19d22f1dfe69da63272912dbcea745
 "} 
+[2018-02-12 13:23:53] local.ERROR: Parse error: syntax error, unexpected '<<' (T_SL), expecting end of file {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Parse error: syntax error, unexpected '<<' (T_SL), expecting end of file at /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/routes/web.php:14)
+[stacktrace]
+#0 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Routing/Router.php(349): Illuminate\\Routing\\Router->loadRoutes('/media/mohamedt...')
+#1 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Routing/RouteRegistrar.php(105): Illuminate\\Routing\\Router->group(Array, '/media/mohamedt...')
+#2 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/app/Providers/RouteServiceProvider.php(56): Illuminate\\Routing\\RouteRegistrar->group('/media/mohamedt...')
+#3 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/app/Providers/RouteServiceProvider.php(40): App\\Providers\\RouteServiceProvider->mapWebRoutes()
+#4 [internal function]: App\\Providers\\RouteServiceProvider->map()
+#5 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#6 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(87): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#7 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(31): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#8 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Container/Container.php(549): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#9 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Foundation/Support/Providers/RouteServiceProvider.php(74): Illuminate\\Container\\Container->call(Array)
+#10 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Foundation/Support/Providers/RouteServiceProvider.php(33): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/app/Providers/RouteServiceProvider.php(28): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->boot()
+#12 [internal function]: App\\Providers\\RouteServiceProvider->boot()
+#13 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#14 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(87): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#15 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(31): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#16 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Container/Container.php(549): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#17 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(792): Illuminate\\Container\\Container->call(Array)
+#18 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(775): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 20)
+#20 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(776): array_walk(Array, Object(Closure))
+#21 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(213): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(162): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(146): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#25 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(116): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#26 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/public/index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#27 /media/mohamedtalaat/5EB2A40BB2A3E5AD/F/Web/ITI/Flight System/project/server.php(21): require_once('/media/mohamedt...')
+#28 {main}
+"} 

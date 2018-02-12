@@ -23,10 +23,8 @@ Route::prefix('admin')->group(function () {
 	
 	
 	Auth::routes();
-	
-	
-	
 	Route::resource('users', 'UserController');
+	//Route::post('users', ['as' => 'users.index', 'uses' => 'UserController@index', 'middleware' => ['permission:role-list|role-create|role-edit|role-delete']]);
 	
 	
 	Route::get('roles', ['as' => 'roles.index', 'uses' => 'RoleController@index', 'middleware' => ['permission:role-list|role-create|role-edit|role-delete']]);
@@ -36,12 +34,6 @@ Route::prefix('admin')->group(function () {
 	Route::get('roles/{id}/edit', ['as' => 'roles.edit', 'uses' => 'RoleController@edit', 'middleware' => ['permission:role-edit']]);
 	Route::patch('roles/{id}', ['as' => 'roles.update', 'uses' => 'RoleController@update', 'middleware' => ['permission:role-edit']]);
 	Route::delete('roles/{id}', ['as' => 'roles.destroy', 'uses' => 'RoleController@destroy', 'middleware' => ['permission:role-delete']]);
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -75,7 +67,28 @@ Route::prefix('admin')->group(function () {
 	//seats delete
 	Route::delete('seats/{id}', ['as' => 'seats.destroy', 'uses' => 'SeatsLevelsController@destroy', 'middleware' => ['permission:delete-seat-level']]);
 	
+
+	//adding company with the permission
+	//companies index
+	Route::get('/companies', ['as' => 'companies.index', 'uses' => "CompaniesController@index", 'middleware' => ['permission:create-company']]);
+	//companies new
+	Route::get('/companies/create', ['as' => 'companies.create', 'uses' => "CompaniesController@create", 'middleware' => ['permission:create-company']]);
+	Route::post('/companies/create', ['as' => 'companies.store', 'uses' => "CompaniesController@store", 'middleware' => ['permission:create-company']]);
+	//companies show
+	Route::get('/companies/{id}', ['as' => 'companies.show', 'uses' => 'CompaniesController@show', 'middleware' => 'permission:create-company']);
+	//companies update
+	Route::get('/companies/{id}/edit', ['as' => 'companies.edit', 'uses' => 'CompaniesController@edit', 'middleware' => 'permission:edit-company']);
 	
+	Route::patch('/companies/{id}', ['as' => 'companies.update', 'uses' => 'CompaniesController@update', 'middleware' => 'permission:edit-company']);
+	//companies delete
+	Route::delete('companies/{id}', ['as' => 'companies.destroy', 'uses' => 'CompaniesController@destroy', 'middleware' => ['permission:delete-company']]);
+	
+
+	//for contacts 
+	Route::get('/contacts', ['as' => 'contacts.index', 'uses' => "ContactsController@index", 'middleware' => ['permission:delete-contact']]);
+	Route::get('/contacts/{id}', ['as' => 'contacts.show', 'uses' => 'ContactsController@show', 'middleware' => 'permission:delete-contact']);
+	Route::delete('contacts/{id}', ['as' => 'contacts.destroy', 'uses' => 'ContactsController@destroy', 'middleware' => ['permission:delete-contact']]);
+
 	
 });
 

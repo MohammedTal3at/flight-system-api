@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SeatLevel extends Model
 {
-    //
+    protected $fillable = ['name', 'description'];
     protected $table = 'seats_levels';
 
     public function trips()	

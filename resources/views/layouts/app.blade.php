@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -28,13 +29,19 @@
                     </button>
 
                     <!-- Branding Image -->
+<<<<<<< HEAD
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Flight System API') }}
+=======
+                    <a class="navbar-brand" href="{{ route('home') }}">
+                        {{ config('app.name', 'Laravel') }}
+>>>>>>> 6c824d397a19d22f1dfe69da63272912dbcea745
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
+<<<<<<< HEAD
                    <ul class="nav navbar-nav">
                        @if(Auth::check()) 
                             <li><a href="{{ url('/home') }}">Home</a></li>
@@ -42,6 +49,15 @@
                             <li><a href="{{ route('roles.index') }}">Roles</a></li>
                         @endif    
                   </ul>
+=======
+                    <ul class="nav navbar-nav">
+                        <li> <a href="{{ route('places.index')}}"> Places </a></li>
+                        <li> <a href="{{ route('seats.index')}}"> Seat Levels </a></li>
+
+                        <li> <a href="{{ route('users.index')}}"> Users </a></li>
+
+                    </ul>
+>>>>>>> 6c824d397a19d22f1dfe69da63272912dbcea745
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -73,9 +89,8 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
-            @yield('content')
-        </div>
+
+        @yield('content')
     </div>
 
     <!-- Scripts -->

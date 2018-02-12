@@ -19,6 +19,9 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
+
+        //any middleware that is made by you-->you should add the header here
+        \App\Http\Middleware\Cors::class,
     ];
 
     /**
@@ -60,5 +63,7 @@ class Kernel extends HttpKernel
         'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,
         'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
         'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
+        //here we should include auth.jwt for can create token.
+        'auth.jwt' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
     ];
 }

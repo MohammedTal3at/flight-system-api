@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+//you should comment this.
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
+
+
+
+//For can signup and signin for clients. 
+Route::post('/client',['uses'=>"UserController@signup"]);
+Route::post('/client/signin',['uses'=>"UserController@signin"]);
+

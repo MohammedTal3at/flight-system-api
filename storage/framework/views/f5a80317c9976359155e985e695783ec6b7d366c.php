@@ -29,23 +29,26 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
-                        <?php echo e(config('app.name', 'Laravel')); ?>
+                        <?php echo e(config('app.name', 'Flight System API')); ?>
 
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+                   <ul class="nav navbar-nav">
+                       <?php if(Auth::check()): ?> 
+                            <li><a href="<?php echo e(url('/home')); ?>">Home</a></li>
+                            <li><a href="<?php echo e(route('users.index')); ?>">Users</a></li>
+                            <li><a href="<?php echo e(route('roles.index')); ?>">Roles</a></li>
+                        <?php endif; ?>    
+                  </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         <?php if(auth()->guard()->guest()): ?>
                             <li><a href="<?php echo e(route('login')); ?>">Login</a></li>
-                            <li><a href="<?php echo e(route('register')); ?>">Register</a></li>
                         <?php else: ?>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
@@ -72,8 +75,9 @@
                 </div>
             </div>
         </nav>
-
-        <?php echo $__env->yieldContent('content'); ?>
+        <div class="container">
+            <?php echo $__env->yieldContent('content'); ?>
+        </div>
     </div>
 
     <!-- Scripts -->

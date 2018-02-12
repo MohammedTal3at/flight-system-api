@@ -29,18 +29,18 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Flight System API') }}
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                    <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="{{ route('users.index') }}">Users</a></li>
-                    <li><a href="{{ route('roles.index') }}">Roles</a></li>
-                    <li><a href="{{ route('posts.index') }}">Posts</a></li>
-                    <li><a href="{{ route('articles.index') }}">Articles</a></li>
+                       @if(Auth::check()) 
+                            <li><a href="{{ url('/home') }}">Home</a></li>
+                            <li><a href="{{ route('users.index') }}">Users</a></li>
+                            <li><a href="{{ route('roles.index') }}">Roles</a></li>
+                        @endif    
                   </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -48,7 +48,6 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">

@@ -72,7 +72,6 @@
                         <a href="<?php echo e(url('/home')); ?>">Home</a>
                     <?php else: ?>
                         <a href="<?php echo e(route('login')); ?>">Login</a>
-                        <a href="<?php echo e(route('register')); ?>">Register</a>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>

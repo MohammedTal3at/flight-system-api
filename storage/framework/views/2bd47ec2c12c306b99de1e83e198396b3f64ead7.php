@@ -3,7 +3,13 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading">Login
+
+                    <?php if(session('erorrMessage')): ?>
+                        <div class="alert alert-danger"><?php echo e(erorrMessage); ?> </div>
+                    <?php endif; ?>    
+
+                </div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="<?php echo e(route('login')); ?>">

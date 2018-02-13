@@ -39,6 +39,7 @@
                     <ul class="nav navbar-nav">
                         <li> <a href="{{ route('places.index')}}"> Places </a></li>
                         <li> <a href="{{ route('seats.index')}}"> Seat Levels </a></li>
+                        <li> <a href="{{ route('trips.index')}}"> Trips </a></li>
 
                         <li> <a href="{{ route('users.index')}}"> Users </a></li>
 

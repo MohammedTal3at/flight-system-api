@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Trip extends Model
 {
-    //
+    protected $fillable = [ 'company_id', 'start_date', 'start_time', 'end_date', 'from_place_id', 'to_place_id' ];
     public function company()
     {
     	return $this->belongsTo('App\Company','company_id');
@@ -24,7 +24,7 @@ class Trip extends Model
 
     public function seatlevels()
     {
-    	return $this->belongsToMany('App\SeatLevel','seats_levels_trips','seats_levels_id','trip_id')->withPivot('price','available_count');
+    	return $this->belongsToMany('App\SeatLevel','seats_levels_trips','trip_id','seats_levels_id')->withPivot('price','available_count');
     }
     public function bookings()
     {

@@ -39,7 +39,7 @@ class SeatsLevelsController extends Controller
 	
 	public function show($id)
 	{
-		$seat = SeatLevel::find($id);
+		$seat = SeatLevel::findMany($id)[0];
 		return view('seat_levels.show', compact('seat'));
 	}
 	

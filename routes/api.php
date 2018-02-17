@@ -24,3 +24,8 @@ use Illuminate\Http\Request;
 Route::post('/client',['uses'=>"UserController@signup"]);
 Route::post('/client/signin',['uses'=>"UserController@signin"]);
 
+
+//contact
+Route::post('/contact',['uses'=>"ContactsController@insertAPI"]);
+
+

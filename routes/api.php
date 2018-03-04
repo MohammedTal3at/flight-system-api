@@ -26,3 +26,8 @@ Route::post('/client/signin',['uses'=>"UserController@signin"]);
 Route::get('/client/trips',['uses'=>"TripsController@getapiTrips"]);
 
 
+
+//contact
+Route::post('/contact',['uses'=>"ContactsController@insertAPI"]);
+
+

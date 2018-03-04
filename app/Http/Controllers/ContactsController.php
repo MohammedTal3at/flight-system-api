@@ -28,4 +28,26 @@ class ContactsController extends Controller
         return redirect()->route('contacts.index')->with('success', 'Deleted Successfully');
         
         }
+
+        //function API that is using for insert in contact table from the front-end
+        public function insertAPI(Request $request)
+        {
+            //validate
+            $this->validate($request, [
+                "name"=>"required",
+                "email"=>"required|email",
+                "message"=>"required",
+                "phone"=>"required|string|min:11|max:11"
+            ]);
+
+                //insert into contact table the resquest data
+                $contact=new Contact([
+                    "name"=>$request->input('name'),
+                    "email"=>$request->input('email'),
+                    "message"=>$request->input('message'),
+                    "phone"=>$request->input('phone'),
+                ]);
+                $contact->save();  
+                return response()->json(['message'=>"Create contact successfully"],201);
+        }
 }

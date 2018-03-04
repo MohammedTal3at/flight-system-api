@@ -18,7 +18,7 @@ class TripsController extends Controller
 	
 	public function show($id)
 	{
-		$trip = Trip::findMany($id)[0];
+		$trip = Trip::find($id);
 		return view('trips.show', compact('trip'));
 	}
 	
@@ -65,14 +65,14 @@ class TripsController extends Controller
 	
 	public function destroy($id)
 	{
-		Trip::findMany($id)[0]->delete();
+		Trip::find($id)->delete();
 		return redirect()->route('trips.index')->with('success', 'Trip deleted Successfully');
 		
 	}
 	
 	public function edit($id)
 	{
-		$trip = Trip::findMany($id)[0];//->with('company');
+		$trip = Trip::find($id);//->with('company');
 		$companies = Company::pluck('name', 'id')->toArray();
 		$place_from = Place::pluck('city', 'id')->toArray();
 		$place_to = Place::pluck('city', 'id')->toArray();
@@ -100,6 +100,29 @@ class TripsController extends Controller
 		
 		$trip_data = $request->all();
 		$trip = Trip::findMany($id)[0]->update($trip_data);
+		
+		//update prices and seats count
+		$trip_pivots = Trip::findMany($id)[0];
+		$trip_pivots->seatlevels()->updateExistingPivot(1, ['price' => $trip_data['economyprice'], 'available_count' => $trip_data['economy']]);
+		$trip_pivots->seatlevels()->updateExistingPivot(2, ['price' => $trip_data['standardprice'], 'available_count' => $trip_data['standard']]);
+		$trip_pivots->seatlevels()->updateExistingPivot(3, ['price' => $trip_data['firstclassprice'], 'available_count' => $trip_data['firstclass']]);
+		
+		
 		return redirect()->route('trips.index')->with('success', 'Trip Successfully Updated');
+	}
+	
+	
+	public function getapiTrips()
+	{
+		$response = Trip::all();
+		//change id values for (company_id, place_id from and to ) to be understandable
+		//output: if company_id for trip is 1 -> output will be 'Company 1' and the same for places
+		foreach ($response as $res) {
+			$res['company_id'] = Company::findMany($res['company_id'])[0]['name'];
+			$res['from_place_id'] = Place::findMany($res['from_place_id'])[0]['city'];
+			$res['to_place_id'] = Place::findMany($res['to_place_id'])[0]['city'];
+			$res = array_except($res, ['created_at', 'id', 'updated_at']);
+		}
+		return response()->json(['trips' => $response]);
 	}
 }

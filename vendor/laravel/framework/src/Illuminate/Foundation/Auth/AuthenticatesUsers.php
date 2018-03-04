@@ -28,9 +28,8 @@ trait AuthenticatesUsers
      */
     public function login(Request $request)
     {
-       
-        
         $this->validateLogin($request);
+
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
         // the IP address of the client making these requests into this application.
@@ -42,7 +41,6 @@ trait AuthenticatesUsers
 
         if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
-            
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
@@ -51,7 +49,6 @@ trait AuthenticatesUsers
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
-        
     }
 
     /**
@@ -100,26 +97,12 @@ trait AuthenticatesUsers
      */
     protected function sendLoginResponse(Request $request)
     {
-        /*check the user is an admin or client
-        if user is admin -->so he can login 
-        else if he is a client  -->so he can login
-        */
-        if(Auth::user()->user_type=='system_user')
-        {
-            //if admin
         $request->session()->regenerate();
 
         $this->clearLoginAttempts($request);
 
         return $this->authenticated($request, $this->guard()->user())
                 ?: redirect()->intended($this->redirectPath());
-        }
-        else
-         {
-             //if client
-           return $this->logout($request);
-           
-         }
     }
 
     /**
@@ -171,7 +154,7 @@ trait AuthenticatesUsers
 
         $request->session()->invalidate();
 
-        return redirect('/home');
+        return redirect('/');
     }
 
     /**

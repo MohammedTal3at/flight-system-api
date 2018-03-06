@@ -23,6 +23,8 @@ use Illuminate\Http\Request;
 //For can signup and signin for clients. 
 Route::post('/client',['uses'=>"UserController@signup"]);
 Route::post('/client/signin',['uses'=>"UserController@signin"]);
+Route::get('/client/trips',['uses'=>"TripsController@getapiTrips"]);
+
 
 
 //contact

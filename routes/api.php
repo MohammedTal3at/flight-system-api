@@ -28,4 +28,5 @@ Route::post('/client/signin',['uses'=>"UserController@signin"]);
 //contact
 Route::post('/contact',['uses'=>"ContactsController@insertAPI"]);
 
-
+//get the user data
+Route::get('/userdata',['uses'=>"UserController@getUserData"]);

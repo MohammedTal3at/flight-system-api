@@ -62,7 +62,10 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
-
+        'media' => [
+            'driver' => 'local',
+            'root'   => storage_path().'/app/public/media/',
+        ],
     ],
 
 ];

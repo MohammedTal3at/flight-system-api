@@ -21,7 +21,7 @@
 			</ul>
 		</div>
 	@endif
-	{!! Form::open(array('route' => 'trips.store','method'=>'POST')) !!}
+	{!! Form::open(array('route' => 'trips.store','method'=>'POST', 'files' => true)) !!}
 	<div class="row">
 
 
@@ -109,6 +109,13 @@
             <div class="form-group">
                 <strong>First Class Seat Price:</strong>
                 {!! Form::number('firstclassprice', null, array('class' => 'form-control')) !!}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Trip Image:</strong>
+                {!! Form::file('image', null, array('class' => 'image')) !!}
             </div>
         </div>
 

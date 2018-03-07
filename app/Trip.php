@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class Trip extends Model
+class Trip extends Model implements HasMedia
 {
+    use HasMediaTrait;
     protected $fillable = [ 'company_id', 'start_date', 'start_time', 'end_date', 'from_place_id', 'to_place_id' ];
     public function company()
     {

@@ -34,4 +34,5 @@ Route::get('/client/trips/{id}',['uses'=>"TripsController@getapiTripbyId"]);
 //contact
 Route::post('/contact',['uses'=>"ContactsController@insertAPI"]);
 
-
+//get the user data
+Route::get('/userdata',['uses'=>"UserController@getUserData"]);

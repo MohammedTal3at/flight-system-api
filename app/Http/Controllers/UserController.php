@@ -166,7 +166,10 @@ class UserController extends Controller
             $this->validate($request, [
                 "name"=>"required",
                 "email"=>"required|email|unique:users",
-                "password"=>"required"
+                "password"=> array(
+                    'required',
+                    'regex:/(^([a-zA-Z]+)(\d+)?$)/u'
+                )
             ]);
                 //insert into users table the resquest data
             $user=new User([
@@ -192,7 +195,8 @@ class UserController extends Controller
                 "email"=>"required|email",
                 "password"=>"required"
             ]);
-            $credentials=$request->only('email','password');    
+            $credentials=$request->only('email','password');  
+            $email= $request->input('email'); 
            
     
             try{
@@ -214,10 +218,17 @@ class UserController extends Controller
                     "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQ2xpZW50Iiwic3ViIjoyLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0L3Byb2plY3QvcHVibGljL2FwaS9jbGllbnQvc2lnbmluIiwiaWF0IjoxNTE4MDk1OTAxLCJleHAiOjE1MTgwOTk1MDEsIm5iZiI6MTUxODA5NTkwMSwianRpIjoiZ2pBdXE5MHhBUTNlMGl2MyJ9.tYG4U1o6bfJOOFPpE9GmZ-zp4ak8XI77qdRo36hlI8o"
                 }
              */
-
             return response()->json(['token'=>$token,$customClaims],200);
-    
-   
+        }
+        
+
+        //get the user data to show it in front-end
+        public function getUserData()
+        {
+            $userToken=JWTAuth::parseToken()->toUser();
+            $id=JWTAuth::toUser()->id;
+            $response=DB::table('users')->select('name', 'email')->where('id','=',$id)->get();
+            return response()->json($response,200);
         }
 
 

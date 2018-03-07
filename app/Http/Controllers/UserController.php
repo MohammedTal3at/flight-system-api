@@ -166,7 +166,10 @@ class UserController extends Controller
             $this->validate($request, [
                 "name"=>"required",
                 "email"=>"required|email|unique:users",
-                "password"=>"required"
+                "password"=> array(
+                    'required',
+                    'regex:/(^([a-zA-Z]+)(\d+)?$)/u'
+                )
             ]);
                 //insert into users table the resquest data
             $user=new User([

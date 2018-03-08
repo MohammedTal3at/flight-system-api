@@ -46,6 +46,7 @@
                         <li><a href="{{ route('seats.index')}}"> Seat Levels </a></li>
                         <li><a href="{{ route('companies.index')}}"> Companies </a></li>
                         <li><a href="{{ route('trips.index')}}"> Trips </a></li>
+			<li><a href="{{ route('bookings.index')}}"> Bookings </a></li>
                         <li><a href="{{ route('contacts.index')}}"> Contacts </a></li>
                     @endif
                 </ul>

@@ -131,5 +131,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('/contacts/{id}', ['as' => 'contacts.show', 'uses' => 'ContactsController@show', 'middleware' => 'permission:delete-contact']);
 	Route::delete('contacts/{id}', ['as' => 'contacts.destroy', 'uses' => 'ContactsController@destroy', 'middleware' => ['permission:delete-contact']]);
 
+
+
+
+    //booking index
+    Route::get('/bookings', ['as' => 'bookings.index', 'uses' => "BookingsController@index", 'middleware' => ['permission:booking-create']]);
+    //booking new
+    Route::get('/bookings/create', ['as' => 'bookings.create', 'uses' => "BookingsController@create", 'middleware' => ['permission:booking-create']]);
+    Route::post('/bookings/create', ['as' => 'bookings.store', 'uses' => "BookingsController@store", 'middleware' => ['permission:booking-create']]);
+    //booking show
+    Route::get('/bookings/{id}', ['as' => 'bookings.show', 'uses' => 'BookingsController@show', 'middleware' => 'permission:booking-create']);
+    //booking update
+    Route::get('/bookings/{id}/edit', ['as' => 'bookings.edit', 'uses' => 'BookingsController@edit', 'middleware' => 'permission:booking-edit']);
+
+    Route::patch('/bookings/{id}', ['as' => 'bookings.update', 'uses' => 'BookingsController@update', 'middleware' => 'permission:booking-edit']);
+    //booking delete
+    Route::delete('bookings/{id}', ['as' => 'bookings.destroy', 'uses' => 'BookingsController@destroy', 'middleware' => ['permission:booking-delete']]);
 	
 });

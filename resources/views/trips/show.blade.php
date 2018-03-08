@@ -19,7 +19,7 @@
         </div>
 
         <div class="col-xs-8 col-sm-8 col-md-8 form-group">
-            <img style="display:block; margin-left:auto; margin-right:auto" class="img-responsive" src="{{ str_replace('/var/www/html', '',$trip->getMedia()[0]->getPath()) }}">
+            <img style="display:block; margin-left:auto; margin-right:auto" class="img-responsive" src="{{ env('APP_URL') . '/' . env('APP_NAME') . '/storage/app/public/media/' . $f->id . '/' . $f->file_name}}">
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2">
 

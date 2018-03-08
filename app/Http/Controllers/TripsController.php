@@ -22,7 +22,8 @@ class TripsController extends Controller
 	public function show($id)
 	{
 		$trip = Trip::find($id);
-		return view('trips.show', compact('trip'));
+		$f = $trip->getMedia()->first();
+		return view('trips.show', compact(['trip', 'f']));
 	}
 	
 	public function create()
@@ -68,7 +69,6 @@ class TripsController extends Controller
         Storage::disk('media')->put($filename, file_get_contents($file));
         $pathToFile = Storage::disk('media')->url('app/public/media/'.$filename);
         $trip->addMedia(base_path().$pathToFile)->toMediaCollection();
-
 		return redirect()->route('trips.index')->with('success', 'Trip Created Successfully');
 	}
 	
